@@ -2,12 +2,13 @@
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" delimiter-precedes-et-al="never" demote-non-dropping-particle="sort-only">
   <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
   <info>
-    <title>Richtlinien der Online Zeitschrift zur Antiken Numismatik / OZEAN (msch0150)</title>
-    <title-short>OZEAN</title-short>
+    <title>OZeAN - Deutsches Archäologisches Institut</title>
+    <title-short>OZeAN - DAI</title-short>
     <id>http://www.zotero.org/styles/deutsches-archaologisches-institut</id>
     <link href="http://www.zotero.org/styles/deutsches-archaologisches-institut" rel="self"/>
     <link href="http://www.zotero.org/styles/american-journal-of-archaeology" rel="template"/>
     <link href="http://www.dainst.org/publikationen/publizieren-beim-dai/richtlinien" rel="documentation"/>
+    <link href="https://www.uni-muenster.de/Ejournals/index.php/ozean/requirements" rel="documentation"/>
     <author>
       <name>Adam Rabinowitz</name>
       <email>adam.rabinowitz@gmail.com</email>
@@ -16,17 +17,16 @@
       <name>DAI - Bibliothek</name>
       <email>zenondai@dainst.de</email>
     </contributor>
-	
-	<contributor>
-  		<name>Msch0150</name>
-	  	<uri>https://github.com/Msch0150</uri>
-  	</contributor>
-		
+    <contributor>
+      <name>Msch0150</name>
+	<uri>https://github.com/Msch0150</uri>
+    </contributor>
     <category citation-format="note"/>
     <category citation-format="author-date"/>
     <category field="anthropology"/>
-    <summary>Richtlinien der Online Zeitschrift zur Antiken Numismatik / OZEAN basierend auf den Richtlinien des DAI</summary>
-    <updated>2023-06-18T01:47:37+00:00</updated>
+    <summary>New author-date style meant to meet citation specifications provided by DAI</summary>
+    <summary>Using customized entry in extra-field: "journal-short-dai: my_short_journal_title_dai"</summary>
+    <updated>2023-08-24T01:47:37+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -97,8 +97,8 @@
       <else-if type="article article-journal article-magazine article-newspaper" match="any">
         <text macro="translator"/>
         <choose>
-          <if match="any" variable="container-title-short">
-            <text variable="container-title-short" prefix=", "/>
+          <if match="any" variable="journal-short-dai">
+            <text variable="journal-short-dai" prefix=", "/>
           </if>
           <else>
             <text variable="container-title" prefix=", "/>
@@ -344,16 +344,21 @@
   </macro>
   <macro name="url">
     <choose>
-      <if match="any" variable="URL">
-        <group display="block" prefix=",&amp;#10;">
-          <text variable="URL" text-case="lowercase" prefix="&lt;" suffix="&gt;"/>
-          <choose>
-            <if match="none" is-uncertain-date="accessed">
-              <date form="text" variable="accessed" prefix=" (" suffix=")"/>
-            </if>
-          </choose>
-        </group>
+      <if match="any" variable="DOI">
+	<!-- 20230824: do not print URL when DOI is given -->
       </if>
+      <else>
+        <if match="any" variable="URL">
+          <group display="block" prefix=",&amp;#10;">
+            <text variable="URL" text-case="lowercase" prefix="&lt;" suffix="&gt;"/>
+            <choose>
+              <if match="none" is-uncertain-date="accessed">
+                <date form="text" variable="accessed" prefix=" (" suffix=")"/>
+              </if>
+            </choose>
+          </group>
+        </if>
+      </else>
     </choose>
   </macro>
   <macro name="doi">
@@ -366,18 +371,6 @@
       </if>
     </choose>
   </macro>
-
-  <!-- 20230618 Added to support links to norm data -->
-  <macro name="source">
-    <choose>
-      <if match="any" variable="source">
-        <group display="block" prefix=" ">
-          <text variable="source"/>
-        </group>
-      </if>
-    </choose>
-  </macro>
-
   <macro name="review">
     <choose>
       <if match="any" variable="reviewed-author">
@@ -480,7 +473,6 @@
         </choose>
         <text macro="url"/>
         <text macro="doi"/>
-        <text macro="source"/>
       </group>
     </layout>
   </bibliography>
