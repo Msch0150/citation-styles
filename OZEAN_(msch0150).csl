@@ -26,7 +26,8 @@
     <category field="anthropology"/>
     <summary>New author-date style meant to meet citation specifications provided by DAI</summary>
     <summary>Using customized entry in extra-field: "journal-short-dai: my_short_journal_title_dai"</summary>
-    <updated>2023-08-24T01:47:37+00:00</updated>
+    <summary>Using customized entry in extra-field: "norm-data-link: https://my_link_to_norm_data"</summary>
+    <updated>2023-08-29T01:47:37+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -371,6 +372,20 @@
       </if>
     </choose>
   </macro>
+  <macro name="norm-data">
+    <choose>
+      <if match="any" variable="DOI">
+      <!-- 20230824: use DOI instead of norm data link -->
+      </if>
+      <else>
+      <if match="any" variable="norm-data-link">
+        <group display="block" prefix="&amp;#32;">
+          <text variable="norm-data-link"/>
+        </group>
+      </if>
+      </else>
+    </choose>
+  </macro>
   <macro name="review">
     <choose>
       <if match="any" variable="reviewed-author">
@@ -473,6 +488,7 @@
         </choose>
         <text macro="url"/>
         <text macro="doi"/>
+        <text macro="norm-data"/>
       </group>
     </layout>
   </bibliography>
