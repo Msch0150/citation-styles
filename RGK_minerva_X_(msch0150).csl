@@ -38,11 +38,11 @@
 </info>
 
 <!-- terms section -->
-<terms>
-  <locale xml:lang="de">
-	<term name="in">In</term>
-  </locale>
-</terms>
+<locale xml:lang="de">
+	<terms>
+  		<term name="in">In</term>
+	</terms>
+</locale>
 
 <!-- macro section -->
 <macro name="editor">
@@ -134,14 +134,14 @@
 </macro>
 
 <!-- citation section -->
-<citation>
-	<option name="et-al-min" value="3"/>
-	<option name="et-al-use-first" value="1"/>
-	<option name="et-al-subsequent-min" value="3"/>
-	<option name="et-al-subsequent-use-first" value="1"/>
-	<option name="disambiguate-add-year-suffix" value="true"/>
-	<option name="disambiguate-add-names" value="true"/>
-	<option name="disambiguate-add-givenname" value="true"/>
+<citation 
+	et-al-min="3"
+	et-al-use-first="1"
+	et-al-subsequent-min="3"
+	et-al-subsequent-use-first="1"
+	disambiguate-add-year-suffix="true"
+	disambiguate-add-names="true"
+	disambiguate-add-givenname="true">
 	<layout prefix="" suffix="" delimiter="; ">
 		<group delimiter=", ">
 			<group delimiter=" ">
