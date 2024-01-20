@@ -27,12 +27,13 @@
 	<category field="history"/>
 	<category field="humanities"/>
 	<updated>2024-01-20T10:18:30+00:00</updated>
-	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK</summary>
-        <summary>Using customized entry in extra-field: "journal-short-rgk: my_short_journal_title_rgk" to be able to switch to citation style DAI by using "journal-short-dai: my_short_journal_title_dai" </summary>
-        <summary>See other styles updated by msch0150.</summary>
-    	<updated>2024-01-20T01:47:37+00:00</updated>
-	<summary>Adjustments for minerva X: added prefix "S." for pages.</summary>
-	<link href="http://www.dainst.org" ref="documentation"/>
+	<summary>	Richtlinien der Redaktion fuer die Autoren der Berichte RGK. 
+			Using customized entry in extra-field: "journal-short-rgk: my_short_journal_title_rgk" 
+			to be able to switch to citation style DAI by using "journal-short-dai: my_short_journal_title_dai".
+			Adjustments for minerva X: added prefix "S." for pages.
+			See other styles updated by msch0150.
+	</summary>
+	<link href="http://www.dainst.org" rel="documentation"/>
 	<rights>This work is licensed under a Creative Commons Attribution-Share Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0</rights>
 </info>
 
