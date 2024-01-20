@@ -212,7 +212,7 @@
 						<!-- msch0150, 20231020: use variable "journal-short-rgk" if set -->
 						<!-- msch0150, 20231020: removed "," from prefix -->
 						<choose>
-					          <if match="any" variable="journal-short-rgk">
+					          <if variable="journal-short-rgk">
 					            <text variable="journal-short-rgk" prefix=" "/>
 					          </if>
 					          <else>
