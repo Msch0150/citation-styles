@@ -12,7 +12,7 @@
 <!-- Changes are documented via comments -->  
  
 <info>
-	<title>RGK_minerva (msch0150)</title>
+	<title>[RGK] minerva X (msch0150)</title>
 	<id>http://www.zotero.org/styles/RGK_(msch0150)</id>
 	<link href="http://www.zotero.org/styles/RGK_(msch0150)" rel="documentation"/>
 	<author>
@@ -26,7 +26,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-01-20T10:18:30+00:00</updated>
+	<updated>2024-01-21T10:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK. 
              See other styles updated by msch0150.
 	</summary>
@@ -40,7 +40,6 @@
 		<term name="in">In</term>
 	</terms>
 </locale>
-
 
 <!-- macro section -->
 <macro name="editor">
