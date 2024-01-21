@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="de-DE">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="de-DE">
 
 <!-- Info section -->
 <!-- 	The style is called imperfect because the option "et-al-min" in the bibliography section affects both, the author-short list resembling the citation and the author list, that should show up all participating authors. Until this can't be solved by a diffenciated style, the user has to refine the bibliography manualy.  -->
@@ -12,24 +12,23 @@
 <!-- Changes are documented via comments -->  
  
 <info>
-	<title>[RGK] minerva X (msch0150)</title>
+	<title>RGK_minerva (msch0150)</title>
 	<id>http://www.zotero.org/styles/RGK_(msch0150)</id>
-	<link href="http://www.zotero.org/styles/RGK_minerva_X_(msch0150)" rel="documentation"/>
+	<link href="http://www.zotero.org/styles/RGK_(msch0150)" rel="documentation"/>
 	<author>
 		<name>Christoph Rinne</name>
 		<email>crinne@ufg.uni-kiel.de</email>
 	</author>
 	<contributor>
-		<name>Msch0150</name>
-	  	<uri>https://github.com/Msch0150</uri>
-    	</contributor>
+      <name>Msch0150</name>
+	  <uri>https://github.com/Msch0150</uri>
+    </contributor>
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-01-21T10:18:30+00:00</updated>
-	<summary>	Richtlinien der Redaktion fuer die Autoren der Berichte RGK. 
-			Adjustments for minerva X: added prefix "S." for pages.
-			See other styles updated by msch0150.
+	<updated>2024-01-20T10:18:30+00:00</updated>
+	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK. 
+             See other styles updated by msch0150.
 	</summary>
 	<link href="http://www.dainst.org" rel="documentation"/>
 	<rights>This work is licensed under a Creative Commons Attribution-Share Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0</rights>
@@ -38,9 +37,10 @@
 <!-- terms section -->
 <locale xml:lang="de">
 	<terms>
-  		<term name="in">In</term>
+		<term name="in">In</term>
 	</terms>
 </locale>
+
 
 <!-- macro section -->
 <macro name="editor">
@@ -133,7 +133,7 @@
 
 <!-- citation section -->
 <citation 
-	et-al-min="3"
+	et-al-min="4"
 	et-al-use-first="1"
 	et-al-subsequent-min="3"
 	et-al-subsequent-use-first="1"
@@ -173,7 +173,7 @@
 				<date-part name="year"/>
 			</date>
 		</group>
-		<text macro="author" suffix=","/>
+		<text macro="author" suffix=", "/>
 		<choose>
 			<if type="book">
 			    <!-- 20230401, msch0150: deleted space from delimiter -->
@@ -202,13 +202,13 @@
 					</group>
 				</group>
 			</else-if>
-			<else-if type="article">
+			<else-if type="article-journal">
 				<group prefix=" " delimiter=" " suffix="">
 					<text variable="title" suffix="."/>
 					<group prefix=" " delimiter=", " suffix="">
 						<group prefix="" delimiter=" " suffix="">
-							<!-- msch0150, 20231020: removed "," from prefix -->
-					            	<text variable="container-title" form="short" prefix=" "/>
+						<!-- msch0150, 20231020: removed "," from prefix -->
+					            <text variable="container-title" form="short" prefix=" "/>
 							<group prefix="" delimiter="/" suffix=""><!--oder Heft mit ", " trennen-->
 								<text variable="volume"/>
 								<text variable="issue"/>
