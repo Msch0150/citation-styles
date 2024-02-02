@@ -26,7 +26,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-01-21T10:18:30+00:00</updated>
+	<updated>2024-02-02T10:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK. 
              See other styles updated by msch0150.
 	</summary>
@@ -52,7 +52,8 @@
 <macro name="author">
 	<names variable="author">
 		<!-- 20230401, msch0150: added space " " after dot "." to better separate first names -->
-		<name initialize-with=". " delimiter-precedes-last="always" delimiter="/"/>
+		<!-- 20240202, msch0150: removed initialize-with=". "  to display full firstnames -->
+		<name delimiter-precedes-last="always" delimiter="/"/>
 		<label form="short" prefix=" (" suffix=".)"/>
 		<substitute>
 			<names variable="editor"/>
