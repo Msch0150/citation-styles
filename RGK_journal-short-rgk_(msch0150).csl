@@ -8,7 +8,9 @@
 
 <!-- Info section for extended version -->
 <!-- Enhanced for Institute of Archaeological Studies at Ruhr-University Bochum -->
-<!-- Enhanced to use Extra-variable: "journal-short-rgk" to switch between RGK and other citations like DAI. This enhancement ist not CSL-compliant. -->
+<!-- Enhanced to use extra-field: "journal-short-rgk" to switch between RGK and other citations like DAI. This enhancement ist not CSL-compliant. -->
+<!--     Example: journal-short-rgk: BonnerJahrb
+<!--     It will ignore the regular field "journal-short". -->
 <!-- Changes are documented via comments -->  
  
 <info>
