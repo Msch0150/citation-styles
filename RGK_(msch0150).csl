@@ -19,14 +19,17 @@
 		<email>crinne@ufg.uni-kiel.de</email>
 	</author>
 	<contributor>
-      		<name>Msch0150</name>
-	  	<uri>https://github.com/Msch0150</uri>
-    	</contributor>
+      <name>Msch0150</name>
+	  <uri>https://github.com/Msch0150</uri>
+    </contributor>
 	<category term="author-date"/>
 	<category term="history"/>
 	<category term="humanities"/>
 	<updated>2023-04-11T108:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK</summary>
+        <summary>Using customized entry in extra-field: "journal-short-rgk: my_short_journal_title_rgk" to be able to switch to citation style DAI by using "journal-short-dai: my_short_journal_title_dai" </summary>
+        <summary>See other styles updated by msch0150.</summary>
+    <updated>2023-10-20T01:47:37+00:00</updated>
 	<link href="http://www.dainst.org"/>
 	<rights>This work is licensed under a Creative Commons Attribution-Share Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0</rights>
 </info>
@@ -201,7 +204,16 @@
 					<text variable="title" suffix="."/>
 					<group class="container" prefix=" " delimiter=", " suffix="">
 						<group prefix="" delimiter=" " suffix="">
-							<text variable="container-title" form="short"/>
+						<!-- msch0150, 20231020: use variable "journal-short-rgk" if set -->
+						<!-- msch0150, 20231020: removed "," from prefix -->
+						<choose>
+					          <if match="any" variable="journal-short-rgk">
+					            <text variable="journal-short-rgk" prefix=" "/>
+					          </if>
+					          <else>
+					            <text variable="container-title" form="short" prefix=" "/>
+					          </else>
+					        </choose> 
 							<group prefix="" delimiter="/" suffix=""><!--oder Heft mit ", " trennen-->
 								<text variable="volume"/>
 								<text variable="issue"/>
