@@ -13,8 +13,8 @@
  
 <info>
 	<title>[RGK] minerva X (msch0150)</title>
-	<id>http://www.zotero.org/styles/RGK_(msch0150)</id>
-	<link href="http://www.zotero.org/styles/RGK_(msch0150)" rel="documentation"/>
+	<id>http://www.zotero.org/styles/RGK_minerva_x_(msch0150)</id>
+	<link href="http://www.zotero.org/styles/RGK_minerva_x_(msch0150)" rel="documentation"/>
 	<author>
 		<name>Christoph Rinne</name>
 		<email>crinne@ufg.uni-kiel.de</email>
@@ -26,8 +26,11 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-02-02T10:18:30+00:00</updated>
-	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK. 
+	<updated>2024-05-03T10:18:30+00:00</updated>
+	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
+             Adjusted version for minerva X: 
+                 Full names instead of initials.
+                 "S. " in front of page numbers.
              See other styles updated by msch0150.
 	</summary>
 	<link href="http://www.dainst.org" rel="documentation"/>
