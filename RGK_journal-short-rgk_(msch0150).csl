@@ -28,7 +28,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-05-03T17:32:30+00:00</updated>
+	<updated>2024-08-26T14:00:00+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -166,7 +166,8 @@
 			<key variable="title"/>
 	</sort>
 	<layout suffix=".">
-		<group suffix=": "> <!--Hier muesste noch ein Zeilenumbruch rein-->
+	    <!--Added <tab> in the following line, removed old comment -->
+		<group suffix=":&amp;#9;">
 			<text macro="author-short" suffix=" "/>
 			<date variable="issued">
 				<date-part name="year"/>
