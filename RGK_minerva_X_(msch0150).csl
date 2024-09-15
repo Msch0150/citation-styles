@@ -26,7 +26,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-06-15T10:18:30+00:00</updated>
+	<updated>2024-09-15T10:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              Adjusted version for minerva X: 
                  Full names instead of initials.
@@ -135,8 +135,9 @@
 </macro>
 
 <!-- citation section -->
+<!-- changed et-al-min from 4 to 3 (20240915, msch0150)-->
 <citation 
-	et-al-min="4"
+	et-al-min="3"
 	et-al-use-first="1"
 	et-al-subsequent-min="3"
 	et-al-subsequent-use-first="1"
@@ -158,10 +159,11 @@
 </citation>
 
 <!-- bibliography section -->
+<!-- changed et-al-min from 99 to 3 (20240915, msch0150)-->
 <bibliography
 	hanging-indent="true"
 	entry-spacing="0"
-	et-al-min="99"
+	et-al-min="3"
 	et-al-use-first="1">
 	<!--<option name="second-field-align" value="true"/> -->
 	<sort>
