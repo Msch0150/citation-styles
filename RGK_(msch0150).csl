@@ -179,7 +179,15 @@
 			<key variable="title"/>
 	</sort>
 	<layout suffix=".">
-		<!-- 20241025, msch0150: Take care of acient authors. They should be marked as "standard" and should have "title-short". -->
+	<!-- 20240826, msch0150: added TAB, removed old comment-->
+	<group suffix=":&amp;#9;">
+		<text macro="author-short" suffix=" "/>
+		<date variable="issued">
+			<date-part name="year"/>
+		</date>
+	</group>
+	<text macro="author" suffix=", "/>
+	<!-- 20241025, msch0150: Take care of acient authors. They should be marked as "standard" and should have "title-short". -->
 		<!-- The will not appear in the bibliography. -->
 		<choose>
 			<if type="standard">
