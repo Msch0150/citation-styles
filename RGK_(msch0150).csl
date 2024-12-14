@@ -19,13 +19,13 @@
 		<email>crinne@ufg.uni-kiel.de</email>
 	</author>
 	<contributor>
-      <name>Msch0150</name>
-	  <uri>https://github.com/Msch0150</uri>
-    </contributor>
+        	<name>Msch0150</name>
+	  	<uri>https://github.com/Msch0150</uri>
+    	</contributor>
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-12-13T16:18:30+00:00</updated>
+	<updated>2024-12-14T10:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -51,6 +51,8 @@
 <macro name="author">
 	<names variable="author">
 		<!-- 20230401, msch0150: added space " " after dot "." to better separate first names -->
+		<!-- for minerva X edition, exchance the next active line with (display full firstnames) -->
+		<!-- <name delimiter-precedes-last="always" delimiter="/"/> -->
 		<name initialize-with=". " delimiter-precedes-last="always" delimiter="/"/>
 		<label form="short" prefix=" (" suffix=".)"/>
 		<substitute>
@@ -125,6 +127,7 @@
 
 <macro name="pages">
 	<group>
+		<!-- for minerva X edition append "prefix="S. " to the following tag -->
 		<text variable="page"/>
 	</group>
 </macro>
@@ -158,6 +161,7 @@
 						<text macro="year-date"/>
 					</group>
 					<group>
+						<!-- for minerva X edition append "prefix="S. " to the following tag -->
   						<text variable="locator"/>
 					</group>
 				</group>
