@@ -2,8 +2,8 @@
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="de-DE">
 
 <!-- Info section -->
-<!-- 	The style is called imperfect because the option "et-al-min" in the bibliography section affects both, the author-short list resembling the citation and the author list, that should show up all participating authors. Until this can't be solved by a diffenciated style, the user has to refine the bibliography manualy.  -->
-<!-- 	 Please take care to check the following option: "Preferences" - "styles" - "citationoption: URLs ..." to include URLs for all articles, regardless pages are indicated.  -->
+<!-- The style is called imperfect because the option "et-al-min" in the bibliography section affects both, the author-short list resembling the citation and the author list, that should show up all participating authors. Until this can't be solved by a diffenciated style, the user has to refine the bibliography manualy.  -->
+<!-- Please take care to check the following option: "Preferences" - "styles" - "citationoption: URLs ..." to include URLs for all articles, regardless pages are indicated.  -->
 <!-- This style has been created for the Deutsche Gesellschaft fuer Ur- und Fruehgeschichte/German Association for Pre- and Protohistory. For more information, please visit the website http://www.dguf.de -->
 
 <!-- Info section for extended version -->
@@ -25,7 +25,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2024-12-17T10:18:30+00:00</updated>
+	<updated>2025-04-08T10:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -65,7 +65,7 @@
 <macro name="author-sort">
 	<names variable="author">
 		<name name-as-sort-order="all" sort-separator=", " initialize-with="." delimiter-precedes-last="always" delimiter="/"/>
-		<substitute>
+    <substitute>
 			<names variable="editor"/>
 			<text variable="title"/>
 		</substitute>
@@ -76,11 +76,34 @@
 	<names variable="author">
 		<!-- added et-al-min="3" et-al-use-first="1" (20240915, msch0150)-->
 		<name et-al-min="3" et-al-use-first="1" form="short" delimiter="/" delimiter-precedes-last="always"/>
+		<!-- removed substitue section (20250408, msch0150)-->
+    <!--
 		<substitute>
 			<names variable="editor"/>
 		 </substitute>
+    -->    
 	</names>
 </macro>
+
+<!-- new macro to get rid of substitute section in author-short (20250408, msch0150)-->
+<macro name="editor-short">
+	<names variable="editor">
+		<name et-al-min="3" et-al-use-first="1" form="short" delimiter="/" delimiter-precedes-last="always"/>
+	</names>
+</macro>
+
+<!-- new macro to get rid of substitute section in author-short (20250408, msch0150)-->
+<macro name="author-editor-short">
+  <choose>
+  <if variable="author">
+    <text macro="author-short"/>
+  </if>
+  <else>
+    <text macro="editor-short"/>
+  </else>
+  </choose>
+</macro>
+
 
 <macro name="access">
 	<text variable="URL" prefix="&lt;" suffix="&gt;"/>
@@ -157,7 +180,8 @@
 			<else>
 				<group delimiter=", ">
 					<group delimiter=" ">
-						<text macro="author-short"/>
+            <!-- use new macro to support full "editor" syntax-->
+						<text macro="author-editor-short"/>
 						<text macro="year-date"/>
 					</group>
 					<group>
@@ -185,7 +209,8 @@
 	<layout suffix=".">
 	<!-- 20240826, msch0150: added TAB, removed old comment-->
 	<group suffix=":&amp;#9;">
-		<text macro="author-short" suffix=" "/>
+    <!-- use new macro to support full "editor" syntax-->
+		<text macro="author-editor-short" suffix=" "/>
 		<date variable="issued">
 			<date-part name="year"/>
 		</date>
