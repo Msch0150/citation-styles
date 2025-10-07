@@ -208,7 +208,7 @@
 	</sort>
 	<layout suffix=".">
 
-	<!-- 20241025, msch0150: Take care of acient authors. They should be marked as "standard" and should have "title-short". -->
+	<!-- 20241025, msch0150: Take care of acient authors. They should be marked as "standard" (de=Norm) and should have "title-short". -->
 	<!-- The will not appear in the bibliography. -->
 	<!-- 20251007, msch0150: fixed issue with entry in bibliography -->
 	<choose>
