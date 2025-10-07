@@ -25,7 +25,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2025-04-08T12:18:30+00:00</updated>
+	<updated>2025-10-07T12:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -207,93 +207,97 @@
 			<key variable="title"/>
 	</sort>
 	<layout suffix=".">
-	<!-- 20240826, msch0150: added TAB, removed old comment-->
-	<group suffix=":&amp;#9;">
-    <!-- use new macro to support full "editor" syntax-->
-		<text macro="author-editor-short" suffix=" "/>
-		<date variable="issued">
-			<date-part name="year"/>
-		</date>
-	</group>
-  <!-- removed by msch0150 20250408 -->
-	<!-->
-  <text macro="author" suffix=", "/>
-  -->
+
 	<!-- 20241025, msch0150: Take care of acient authors. They should be marked as "standard" and should have "title-short". -->
-		<!-- The will not appear in the bibliography. -->
-		<choose>
-			<if type="standard">
-			</if>
-			<else>
-				<text macro="author" suffix=", "/>
-				<choose>
-					<if type="book">
-			    		<!-- 20230401, msch0150: deleted space from delimiter -->
-						<group prefix=" " delimiter="" suffix="">
-							<group prefix="" delimiter=". " suffix="">
-								<text variable="title"/>
-								<text macro="collection"/>
-							</group>
-							<!-- 20230401, msch0150: added marco for editions -->
-							<text macro="editions" prefix=""/>
-							<text macro="published" prefix=" "/>
-		 				</group>			
-					</if>
-					<else-if type="chapter">
-						<group prefix=" " delimiter=" " suffix="">
-							<text variable="title" suffix=". "/>
-							<group prefix="" delimiter=" ">
-								<text term="in" suffix=":"/>
-								<text macro="editor"/> 
-								<group suffix="" delimiter=". ">
-									<text variable="container-title"/>
-									<text macro="collection"/>
-								</group>
-								<text macro="published"/>
-								<text macro="pages"/>
-							</group>
+	<!-- The will not appear in the bibliography. -->
+	<!-- 20251007, msch0150: fixed issue with entry in bibliography -->
+	<choose>
+		<if type="standard">
+		</if>
+		<else>
+
+			<!-- 20240826, msch0150: added TAB, removed old comment-->
+			<group suffix=":&amp;#9;">
+    			<!-- use new macro to support full "editor" syntax-->
+				<text macro="author-editor-short" suffix=" "/>
+				<date variable="issued">
+					<date-part name="year"/>
+				</date>
+			</group>
+  			<!-- removed by msch0150 20250408 -->
+			<!-->
+  			<text macro="author" suffix=", "/>
+  			-->
+
+			<text macro="author" suffix=", "/>
+			<choose>
+				<if type="book">
+			    	<!-- 20230401, msch0150: deleted space from delimiter -->
+					<group prefix=" " delimiter="" suffix="">
+						<group prefix="" delimiter=". " suffix="">
+							<text variable="title"/>
+							<text macro="collection"/>
 						</group>
-					</else-if>
-					<else-if type="article-journal">
-						<group prefix=" " delimiter=" " suffix="">
-							<text variable="title" suffix="."/>
-							<group prefix=" " delimiter=", " suffix="">
-								<group prefix="" delimiter=" " suffix="">
-								<!-- msch0150, 20231020: removed "," from prefix -->
-							            <text variable="container-title" form="short" prefix=" "/>
-									<group prefix="" delimiter="/" suffix=""><!--oder Heft mit ", " trennen-->
-										<text variable="volume"/>
-										<text variable="issue"/>
-									</group>
-								</group>
-								<date variable="issued">
-									<date-part name="year"/>
-								</date>
-								<text macro="pages"/>
-							</group>
-						</group>
-					</else-if>
-					<else>
-						<group delimiter=" " suffix="">
-							<text variable="title" suffix=","/>
-							<text macro="editor" prefix="in: "/>
-							<group suffix="" delimiter=", ">
+						<!-- 20230401, msch0150: added marco for editions -->
+						<text macro="editions" prefix=""/>
+						<text macro="published" prefix=" "/>
+		 			</group>			
+				</if>
+				<else-if type="chapter">
+					<group prefix=" " delimiter=" " suffix="">
+						<text variable="title" suffix=". "/>
+						<group prefix="" delimiter=" ">
+							<text term="in" suffix=":"/>
+							<text macro="editor"/> 
+							<group suffix="" delimiter=". ">
 								<text variable="container-title"/>
 								<text macro="collection"/>
-								<text macro="published"/>
 							</group>
-							<group prefix=" ">
-								<text variable="container-title"/>
-								<text variable="volume"/>
-								<text variable="issue" prefix="(" suffix=")"/>
-							</group>
+							<text macro="published"/>
 							<text macro="pages"/>
 						</group>
-					</else>
-				</choose>
-				<text macro="access" prefix=" " suffix=""/>
-			</else>
-		</choose>
-	</layout>
+					</group>
+				</else-if>
+				<else-if type="article-journal">
+					<group prefix=" " delimiter=" " suffix="">
+						<text variable="title" suffix="."/>
+						<group prefix=" " delimiter=", " suffix="">
+							<group prefix="" delimiter=" " suffix="">
+								<!-- msch0150, 20231020: removed "," from prefix -->
+							    <text variable="container-title" form="short" prefix=" "/>
+								<group prefix="" delimiter="/" suffix=""><!--oder Heft mit ", " trennen-->
+									<text variable="volume"/>
+									<text variable="issue"/>
+								</group>
+							</group>
+							<date variable="issued">
+								<date-part name="year"/>
+							</date>
+							<text macro="pages"/>
+						</group>
+					</group>
+				</else-if>
+				<else>
+					<group delimiter=" " suffix="">
+						<text variable="title" suffix=","/>
+						<text macro="editor" prefix="in: "/>
+						<group suffix="" delimiter=", ">
+							<text variable="container-title"/>
+							<text macro="collection"/>
+							<text macro="published"/>
+						</group>
+						<group prefix=" ">
+							<text variable="container-title"/>
+							<text variable="volume"/>
+							<text variable="issue" prefix="(" suffix=")"/>
+						</group>
+						<text macro="pages"/>
+					</group>
+				</else>
+			</choose>
+			<text macro="access" prefix=" " suffix=""/>
+		</else>
+	</choose>
+</layout>
 </bibliography>
 </style>
