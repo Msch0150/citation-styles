@@ -25,7 +25,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2025-10-30T12:18:30+00:00</updated>
+	<updated>2025-10-30T17:00:00+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -277,10 +277,19 @@
 									<text variable="volume"/>
 									<text variable="issue"/>
 								</group>
+              					<choose>
+                					<if variable="issue">
+							    		<date variable="issued">
+								    		<date-part prefix="(" name="year" suffix=")"/>
+							    		</date>
+                					</if>
+                					<else>
+							    		<date variable="issued">
+									    	<date-part name="year"/>
+								    	</date>                  
+        	        				</else>
+              					</choose>
 							</group>
-							<date variable="issued">
-								<date-part name="year"/>
-							</date>
 							<text macro="pages"/>
 						</group>
 					</group>
