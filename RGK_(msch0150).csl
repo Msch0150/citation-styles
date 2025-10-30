@@ -25,7 +25,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2025-10-30T17:00:00+00:00</updated>
+	<updated>2025-10-30T18:30:00+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -269,29 +269,58 @@
 				<else-if type="article-journal">
 					<group prefix=" " delimiter=" " suffix="">
 						<text variable="title" suffix="."/>
-						<group prefix=" " delimiter=", " suffix="">
-							<group prefix="" delimiter=" " suffix="">
-								<!-- msch0150, 20231020: removed "," from prefix -->
-							    <text variable="container-title" form="short" prefix=" "/>
-								<group prefix="" delimiter="/" suffix=""><!--oder Heft mit ", " trennen-->
-									<text variable="volume"/>
-									<text variable="issue"/>
-								</group>
-              					<choose>
-                					<if variable="issue">
-							    		<date variable="issued">
-								    		<date-part prefix="(" name="year" suffix=")"/>
-							    		</date>
-                					</if>
-                					<else>
-							    		<date variable="issued">
-									    	<date-part name="year"/>
-								    	</date>                  
-        	        				</else>
-              					</choose>
-							</group>
-							<text macro="pages"/>
-						</group>
+            <choose>
+              <if variable="volume">
+                <group prefix="" delimiter=", " suffix=""> 
+                  <group prefix="" delimiter=" " suffix="">
+                    <text variable="container-title" form="short" prefix=""/>
+                    <text variable="volume"/>
+                  </group>
+                  <group prefix="" delimiter=" " suffix="">
+                  <choose>
+                    <if variable="issue">
+                      <text variable="issue"/>
+							        <date variable="issued">
+								        <date-part prefix="(" name="year" suffix=")"/>
+							        </date>
+                      <text macro="pages"/>
+                    </if>
+                    <else>
+                      <group prefix="" delimiter=", " suffix="">
+							        <date variable="issued">
+								        <date-part name="year"/>
+							        </date>              
+                      <text macro="pages"/>   
+                       </group>     
+                    </else>
+                  </choose>
+                  </group>
+                </group>
+              </if>
+              <else-if variable="issue">
+                <group prefix="" delimiter=" " suffix="">
+                  <text variable="container-title" form="short" prefix=""/>
+                  <text variable="issue"/>
+							    <date variable="issued">
+								    <date-part prefix="(" name="year" suffix=")"/>
+							    </date>   
+                  <text macro="pages"/>               
+                </group>
+              </else-if>                
+              <else>
+                <group prefix="" delimiter=" " suffix="">
+                  <text variable="container-title" form="short" prefix=""/>
+                  <group prefix="" delimiter=", " suffix="">
+							      <date variable="issued">
+								      <date-part name="year"/>
+							      </date>   
+                    <text macro="pages"/>               
+                  </group>
+                </group>
+              </else> 
+            </choose>
+
+
 					</group>
 				</else-if>
 				<else>
