@@ -25,7 +25,7 @@
 	<category citation-format="author-date"/>
 	<category field="history"/>
 	<category field="humanities"/>
-	<updated>2025-10-07T12:18:30+00:00</updated>
+	<updated>2025-10-307T12:18:30+00:00</updated>
 	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
              See other styles updated by msch0150.
 	</summary>
@@ -129,11 +129,19 @@
 	</choose>
 </macro>
 
+<!-- Modified to match volume (collection-number) and parts (volume): Traitè des monnaies Grecques et Romaines 2, 1 (Paris 1907)  (20251030, msch0150)-->
 <macro name="collection">
 	<text variable="collection-title"/>
 	<!-- removed brackets and spaces from collection-number -->
 	<text variable="collection-number" prefix=" " suffix=""/>
-	<text variable="volume" prefix=" "/>
+  	<choose>
+		<if variable="collection-number">
+      <text variable="volume" prefix=", "/>
+    </if>
+  		<else>
+			<text variable="volume" prefix=" "/>
+		</else>
+	</choose>  
 </macro>
 
 <macro name="published">
