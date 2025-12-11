@@ -1,349 +1,284 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="de-DE">
-
-<!-- Info section -->
-<!-- 	The style is called imperfect because the option "et-al-min" in the bibliography section affects both, the author-short list resembling the citation and the author list, that should show up all participating authors. Until this can't be solved by a diffenciated style, the user has to refine the bibliography manualy.  -->
-<!-- 	 Please take care to check the following option: "Preferences" - "styles" - "citationoption: URLs ..." to include URLs for all articles, regardless pages are indicated.  -->
-<!-- This style has been created for the Deutsche Gesellschaft fuer Ur- und Fruehgeschichte/German Association for Pre- and Protohistory. For more information, please visit the website http://www.dguf.de -->
-
-<!-- Info section for extended version -->
-<!-- Enhanced for Institute of Archaeological Studies at Ruhr-University Bochum -->
-<!-- Changes are documented via comments -->  
- 
-<info>
-	<title>[RGK] (msch0150)</title>
-	<id>http://www.zotero.org/styles/RGK_(msch0150)</id>
-	<link href="http://www.zotero.org/styles/RGK_(msch0150)" rel="documentation"/>
-	<author>
-		<name>Christoph Rinne</name>
-		<email>crinne@ufg.uni-kiel.de</email>
-	</author>
-	<contributor>
-        	<name>Msch0150</name>
-	  	<uri>https://github.com/Msch0150</uri>
-    	</contributor>
-	<category citation-format="author-date"/>
-	<category field="history"/>
-	<category field="humanities"/>
-	<updated>2025-10-30T18:30:00+00:00</updated>
-	<summary>Richtlinien der Redaktion fuer die Autoren der Berichte RGK.
-             See other styles updated by msch0150.
-	</summary>
-	<link href="http://www.dainst.org" rel="documentation"/>
-	<rights>This work is licensed under a Creative Commons Attribution-Share Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0</rights>
-</info>
-
-<!-- terms section -->
-<locale xml:lang="de">
-	<terms>
-		<term name="in">In</term>
-	</terms>
-</locale>
-
-<!-- macro section -->
-<macro name="editor">
-	<names variable="editor">
-		<name initialize-with="." delimiter-precedes-last="always" delimiter="/"/>
-		<label form="short" prefix=" (" suffix=".)"/>
-	</names>
-</macro>
-
-<macro name="author">
-	<names variable="author">
-		<!-- 20230401, msch0150: added space " " after dot "." to better separate first names -->
-		<!-- for minerva X edition, exchance the next active line with (display full firstnames) -->
-		<!-- <name delimiter-precedes-last="always" delimiter="/"/> -->
-		<name initialize-with=". " delimiter-precedes-last="always" delimiter="/"/>
-		<label form="short" prefix=" (" suffix=".)"/>
-		<substitute>
-			<names variable="editor"/>
-			<text variable="title"/>
-		</substitute>
-	</names>
-</macro>
-
-<macro name="author-sort">
-	<names variable="author">
-		<name name-as-sort-order="all" sort-separator=", " initialize-with="." delimiter-precedes-last="always" delimiter="/"/>
-    <substitute>
-			<names variable="editor"/>
-			<text variable="title"/>
-		</substitute>
-	</names>
-</macro>
-
-<macro name="author-short">
-	<names variable="author">
-		<!-- added et-al-min="3" et-al-use-first="1" (20240915, msch0150)-->
-		<name et-al-min="3" et-al-use-first="1" form="short" delimiter="/" delimiter-precedes-last="always"/>
-		<!-- removed substitue section (20250408, msch0150)-->
-    <!--
-		<substitute>
-			<names variable="editor"/>
-		 </substitute>
-    -->    
-	</names>
-</macro>
-
-<!-- new macro to get rid of substitute section in author-short (20250408, msch0150)-->
-<macro name="editor-short">
-	<names variable="editor">
-		<name et-al-min="3" et-al-use-first="1" form="short" delimiter="/" delimiter-precedes-last="always"/>
-	</names>
-</macro>
-
-<!-- new macro to get rid of substitute section in author-short (20250408, msch0150)-->
-<macro name="author-editor-short">
-  <choose>
-  <if variable="author">
-    <text macro="author-short"/>
-  </if>
-  <else>
-    <text macro="editor-short"/>
-  </else>
-  </choose>
-</macro>
-
-
-<macro name="access">
-	<text variable="URL" prefix="&lt;" suffix="&gt;"/>
-	<group prefix=" (" delimiter=" " suffix=")">
-		<date variable="accessed">
-			<date-part name="day" form="numeric-leading-zeros" suffix="."/>
-			<date-part name="month" form="numeric-leading-zeros" suffix="."/>
-			<date-part name="year" form="long"/>
-		</date>
-	</group>
-</macro>
-
-<macro name="year-date">
-	<choose>
-		<if variable="issued">
-			<date variable="issued">
-				<date-part name="year"/>
-			</date>
-		</if>
-		<else>
-			<text term="no date"/>
-		</else>
-	</choose>
-</macro>
-
-<!-- Modified to match volume (collection-number) and parts (volume): Traitè des monnaies Grecques et Romaines 2, 1 (Paris 1907)  (20251030, msch0150)-->
-<macro name="collection">
-	<text variable="collection-title"/>
-	<!-- removed brackets and spaces from collection-number -->
-	<text variable="collection-number" prefix=" " suffix=""/>
-  	<choose>
-		<if variable="collection-number">
-      <text variable="volume" prefix=", "/>
-    </if>
-  		<else>
-			<text variable="volume" prefix=" "/>
-		</else>
-	</choose>  
-</macro>
-
-<macro name="published">
-	<group prefix="(" suffix=")" delimiter=" ">
-		<text variable="publisher-place"/>
-		<text macro="year-date"/>
-	</group>
-</macro>
-
-<!-- added marco for editions (20230401, msch0150)-->
-<macro name="editions">
-	<text variable="edition" vertical-align="sup"/>
-</macro>
-
-<macro name="pages">
-	<group>
-		<!-- for minerva X edition append "prefix="S. " to the following tag -->
-		<text variable="page"/>
-	</group>
-</macro>
-
-<!-- citation section -->
-<!-- changed et-al-min from 4 to 3 (20240915, msch0150)-->
-<citation 
-	et-al-min="3"
-	et-al-use-first="1"
-	et-al-subsequent-min="3"
-	et-al-subsequent-use-first="1"
-	disambiguate-add-year-suffix="true"
-	disambiguate-add-names="true"
-	disambiguate-add-givenname="true">
-	<layout prefix="" suffix="" delimiter="; ">
-		<choose>
-			<!-- 20241025, msch0150: If books from acient authors are entered as "standard", then the "title-short" with "locator" should be used. -->
-			<!-- In this case a "title-short" is required. See documentation by RGK. -->
-			<!-- Example: author="Hesiod"; title="Theogonie"; Title-short="Hes. theog."; pages "123" > "Hes. theog. 123" -->
-			<!-- The entry will not appear in the bibliography. -->
-			<if type="standard">
-				<group delimiter=" ">
-					<text variable="title-short"/>
-					<text variable="locator"/>
-				</group>
-			</if>
-			<else>
-				<group delimiter=", ">
-					<group delimiter=" ">
-            <!-- use new macro to support full "editor" syntax-->
-						<text macro="author-editor-short"/>
-						<text macro="year-date"/>
-					</group>
-					<group>
-						<!-- for minerva X edition append "prefix="S. " to the following tag -->
-  						<text variable="locator"/>
-					</group>
-				</group>
-			</else>
-		</choose>
-	</layout>
-</citation>
-
-<!-- bibliography section -->
-<bibliography
-	hanging-indent="true"
-	entry-spacing="0"
-	et-al-min="99"
-	et-al-use-first="1">
-	<!--<option name="second-field-align" value="true"/> -->
-	<sort>
-			<key macro="author-sort"/>
-			<key variable="issued"/>
-			<key variable="title"/>
-	</sort>
-	<layout suffix=".">
-
-	<!-- 20241025, msch0150: Take care of acient authors. They should be marked as "standard" (de=Norm) and should have "title-short". -->
-	<!-- The will not appear in the bibliography. -->
-	<!-- 20251007, msch0150: fixed issue with entry in bibliography -->
-	<choose>
-		<if type="standard">
-		</if>
-		<else>
-
-			<!-- 20240826, msch0150: added TAB, removed old comment-->
-			<group suffix=":&amp;#9;">
-    			<!-- use new macro to support full "editor" syntax-->
-				<text macro="author-editor-short" suffix=" "/>
-				<date variable="issued">
-					<date-part name="year"/>
-				</date>
-			</group>
-  			<!-- removed by msch0150 20250408 -->
-			<!-->
-  			<text macro="author" suffix=", "/>
-  			-->
-
-			<text macro="author" suffix=", "/>
-			<choose>
-				<if type="book">
-			    	<!-- 20230401, msch0150: deleted space from delimiter -->
-					<group prefix=" " delimiter="" suffix="">
-						<group prefix="" delimiter=". " suffix="">
-							<text variable="title"/>
-							<text macro="collection"/>
-						</group>
-						<!-- 20230401, msch0150: added marco for editions -->
-						<text macro="editions" prefix=""/>
-						<text macro="published" prefix=" "/>
-		 			</group>			
-				</if>
-				<else-if type="chapter">
-					<group prefix=" " delimiter=" " suffix="">
-						<text variable="title" suffix=". "/>
-						<group prefix="" delimiter=" ">
-							<text term="in" suffix=":"/>
-							<text macro="editor"/> 
-							<group suffix="" delimiter=". ">
-								<text variable="container-title"/>
-								<text macro="collection"/>
-							</group>
-							<text macro="published"/>
-							<text macro="pages"/>
-						</group>
-					</group>
-				</else-if>
-				<else-if type="article-journal">
-					<group prefix=" " delimiter=" " suffix="">
-						<text variable="title" suffix="."/>
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" name-delimiter=" / " default-locale="de-DE">
+  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>Römisch-Germanische Kommission (RGK) (author-date, Deutsch, mit Erweiterungen für Ruhr-Universität Bochum, ArWi)</title>
+    <title-short>DAI-RGK (RUB, Arwi)</title-short>
+    <id>http://www.zotero.org/styles/dai-rgk-rub</id>
+    <link href="http://www.zotero.org/styles/dai-rgk-rub" rel="self"/>
+    <link href="https://journals.ub.uni-heidelberg.de/index.php/germania/libraryFiles/downloadPublic/677" rel="documentation"/>
+    <link href="https://www.archwiss.ruhr-uni-bochum.de/aw/mam/reader_3-2_de.pdf" rel="documentation"/>
+    <author>
+      <name>Joachim Klaus Hunke</name>
+      <email>joachim.hunke@ruhr-uni-bochum.de</email>
+    </author>
+    <author>
+      <name>Thimo Jacob Brestel</name>
+      <email>mail@thimobrestel.de</email>
+    </author>
+    <author>
+      <name>Christoph Rinne</name>
+      <email>crinne@ufg.uni-kiel.de</email>
+    </author>
+    <category citation-format="author-date"/>
+    <category field="anthropology"/>
+    <category field="humanities"/>
+    <summary>This citation style uses the citation guidelines provided by the Romano-Germanic Commission of the German Archaeological Institute (DGUF). An older version was known as &quot;RGK_archaeology_DGUF&quot;. Original external style for reference: https://www.dguf.de/fileadmin/user_upload/Arbeitskreise/AK_DGUF-Zotero/RGK_archaeology_DGUF.csl</summary>
+    <updated>2025-12-11T08:57:46+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <locale xml:lang="de">
+    <terms>
+      <term name="accessed">zuletzt aktualisiert am</term>
+      <term name="retrieved">letzter Zugriff</term>
+    </terms>
+  </locale>
+  <macro name="editor">
+    <names variable="editor">
+      <name initialize-with=". " delimiter-precedes-last="always"/>
+      <label form="short" prefix=" (" suffix=")"/>
+    </names>
+  </macro>
+  <macro name="author">
+    <names variable="author" font-variant="small-caps">
+      <name initialize-with=". " delimiter-precedes-last="always"/>
+      <label form="short" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-sort">
+    <names variable="author">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with="." delimiter-precedes-last="always"/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-short">
+    <choose>
+      <if match="any" variable="author">
+        <names variable="author">
+          <name form="short" delimiter-precedes-last="always" et-al-min="4" et-al-use-first="1" font-variant="small-caps"/>
+          <et-al font-variant="normal"/>
+        </names>
+      </if>
+      <else-if match="any" variable="editor">
+        <names variable="editor">
+          <name form="short" delimiter-precedes-last="always" et-al-min="4" et-al-use-first="1" font-variant="small-caps"/>
+          <et-al font-variant="normal"/>
+        </names>
+      </else-if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="container-author">
+    <names variable="container-author">
+      <name initialize-with=". " delimiter-precedes-last="always"/>
+    </names>
+  </macro>
+  <macro name="webpage-date">
+    <group delimiter=" ">
+      <text term="accessed"/>
+      <date variable="issued">
+        <date-part name="day" form="numeric-leading-zeros" suffix="."/>
+        <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+        <date-part name="year" form="long"/>
+      </date>
+    </group>
+  </macro>
+  <macro name="url">
+    <text variable="URL" prefix="&lt;" suffix="&gt;"/>
+  </macro>
+  <macro name="year-date">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="collection">
+    <group delimiter=" ">
+      <text variable="collection-title"/>
+      <text variable="collection-number"/>
+      <text variable="volume" prefix="(" suffix=")"/>
+    </group>
+  </macro>
+  <macro name="published">
+    <group prefix="(" suffix=")" delimiter=" ">
+      <text variable="publisher-place"/>
+      <text macro="year-date"/>
+    </group>
+  </macro>
+  <macro name="cite-locator">
+    <group delimiter=" ">
+      <choose>
+        <if match="none" locator="page">
+          <label variable="locator" form="short"/>
+        </if>
+      </choose>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <citation disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true">
+    <layout delimiter="; ">
+      <choose>
+        <if position="ibid-with-locator">
+          <group delimiter=", ">
+            <text term="ibid" text-case="capitalize-first"/>
+            <text macro="cite-locator"/>
+          </group>
+        </if>
+        <else-if position="ibid">
+          <text term="ibid" text-case="capitalize-first"/>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <group delimiter=" ">
+              <text macro="author-short"/>
+              <text macro="year-date"/>
+            </group>
+            <text macro="cite-locator"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="false" line-spacing="1" entry-spacing="1">
+    <sort>
+      <key macro="author-sort"/>
+      <key variable="issued"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <group display="block">
+        <text macro="author-short" suffix=" "/>
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </group>
+      <group delimiter=" " suffix=".">
+        <choose>
+          <if type="bill book graphic legal_case motion_picture report song chapter entry-dictionary paper-conference article article-journal article-magazine article-newspaper broadcast interview manuscript map patent personal_communication song speech thesis webpage" match="any">
+            <text macro="author" suffix=","/>
             <choose>
-              <if variable="volume">
-                <group prefix="" delimiter=", " suffix=""> 
-                  <group prefix="" delimiter=" " suffix="">
-                    <text variable="container-title" form="short" prefix=""/>
-                    <text variable="volume"/>
+              <if type="bill book graphic broadcast legal_case motion_picture report song manuscript map patent personal_communication speech" match="any">
+                <group>
+                  <group>
+                    <text variable="title"/>
+                    <text macro="collection" prefix=". "/>
                   </group>
-                  <group prefix="" delimiter=" " suffix="">
-                  <choose>
-                    <if variable="issue">
-                      <text variable="issue"/>
-							        <date variable="issued">
-								        <date-part prefix="(" name="year" suffix=")"/>
-							        </date>
-                      <text macro="pages"/>
-                    </if>
-                    <else>
-                      <group prefix="" delimiter=", " suffix="">
-							        <date variable="issued">
-								        <date-part name="year"/>
-							        </date>              
-                      <text macro="pages"/>   
-                       </group>     
-                    </else>
-                  </choose>
-                  </group>
+                  <text variable="edition" vertical-align="sup"/>
+                  <text macro="published" prefix=" "/>
+                  <text variable="page"/>
                 </group>
               </if>
-              <else-if variable="issue">
-                <group prefix="" delimiter=" " suffix="">
-                  <text variable="container-title" form="short" prefix=""/>
-                  <text variable="issue"/>
-							    <date variable="issued">
-								    <date-part prefix="(" name="year" suffix=")"/>
-							    </date>   
-                  <text macro="pages"/>               
+              <else-if type="thesis" match="any">
+                <group prefix=" " delimiter=" " suffix=".">
+                  <text variable="title"/>
+                  <group prefix="[" delimiter=" " suffix="]">
+                    <text variable="genre"/>
+                    <text variable="publisher"/>
+                    <date variable="issued">
+                      <date-part name="year"/>
+                    </date>
+                  </group>
+                  <text variable="page" prefix=" " suffix="."/>
                 </group>
-              </else-if>                
-              <else>
-                <group prefix="" delimiter=" " suffix="">
-                  <text variable="container-title" form="short" prefix=""/>
-                  <group prefix="" delimiter=", " suffix="">
-							      <date variable="issued">
-								      <date-part name="year"/>
-							      </date>   
-                    <text macro="pages"/>               
+              </else-if>
+              <else-if type="chapter paper-conference" match="any">
+                <group prefix=" " delimiter=" ">
+                  <text variable="title" suffix=". "/>
+                  <group delimiter=" ">
+                    <text term="in" text-case="capitalize-first" suffix=":"/>
+                    <choose>
+                      <if variable="editor" match="any">
+                        <text macro="editor" suffix=","/>
+                      </if>
+                      <else-if variable="container-author" match="any">
+                        <text macro="container-author" suffix=","/>
+                      </else-if>
+                    </choose>
+                    <group delimiter=". ">
+                      <text variable="container-title"/>
+                      <text macro="collection"/>
+                    </group>
+                    <text macro="published"/>
+                    <text variable="page" suffix="."/>
                   </group>
                 </group>
-              </else> 
+              </else-if>
+              <else-if type="article article-journal article-magazine article-newspaper interview" match="any">
+                <group prefix=" " delimiter=" ">
+                  <text variable="title" suffix="."/>
+                  <group prefix=" " delimiter="">
+                    <group delimiter=" ">
+                      <text variable="container-title" form="short"/>
+                      <group delimiter="," suffix=",">
+                        <text variable="volume"/>
+                        <text variable="issue"/>
+                      </group>
+                    </group>
+                    <date variable="issued">
+                      <date-part name="year" prefix=" "/>
+                    </date>
+                    <text variable="page" prefix=", " suffix="."/>
+                  </group>
+                </group>
+              </else-if>
+              <else-if type="webpage post post-weblog" match="any">
+                <group delimiter=", " prefix=" ">
+                  <text variable="title" suffix="." />
+                </group>
+				<choose>
+                <if variable="URL" match="any">
+                  <text macro="url"/>
+                  <choose>
+                    <if match="none" is-uncertain-date="accessed">
+                      <group delimiter="" prefix="(" suffix=")">
+                        <date variable="accessed">
+                          <date-part name="day" form="numeric-leading-zeros" suffix="."/>
+                          <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+                          <date-part name="year" form="long"/>
+                        </date>
+                      </group>
+                    </if>
+                  </choose>
+                </if>
+				</choose>
+              </else-if>
             </choose>
-
-
-					</group>
-				</else-if>
-				<else>
-					<group delimiter=" " suffix="">
-						<text variable="title" suffix=","/>
-						<text macro="editor" prefix="in: "/>
-						<group suffix="" delimiter=", ">
-							<text variable="container-title"/>
-							<text macro="collection"/>
-							<text macro="published"/>
-						</group>
-						<group prefix=" ">
-							<text variable="container-title"/>
-							<text variable="volume"/>
-							<text variable="issue" prefix="(" suffix=")"/>
-						</group>
-						<text macro="pages"/>
-					</group>
-				</else>
-			</choose>
-			<text macro="access" prefix=" " suffix=""/>
-		</else>
-	</choose>
-</layout>
-</bibliography>
+          </if>
+          <else-if type="entry-encyclopedia entry-dictionary" match="any">
+            <group delimiter=" " suffix=".">
+              <group>
+                <text variable="container-title"/>
+                <text variable="edition" vertical-align="sup"/>
+              </group>
+              <text variable="volume"/>
+              <text macro="year-date" prefix="(" suffix=")"/>
+              <text variable="page" prefix=" " suffix=""/>
+              <text variable="title" prefix="s. v. "/>
+              <text macro="author" prefix="(" suffix=")"/>
+            </group>
+          </else-if>
+        </choose>
+        <choose>
+          <if variable="DOI" match="any">
+            <text variable="DOI" prefix=" doi: https://doi.org/" suffix="."/>
+          </if>
+        </choose>
+      </group>
+    </layout>
+  </bibliography>
 </style>
