@@ -24,7 +24,7 @@
     <category field="anthropology"/>
     <category field="humanities"/>
     <summary>This citation style uses the citation guidelines provided by the Romano-Germanic Commission of the German Archaeological Institute (DGUF). An older version was known as &quot;RGK_archaeology_DGUF&quot;. Original external style for reference: https://www.dguf.de/fileadmin/user_upload/Arbeitskreise/AK_DGUF-Zotero/RGK_archaeology_DGUF.csl</summary>
-    <updated>2025-12-11T08:57:46+00:00</updated>
+    <updated>2025-12-16T08:57:46+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
@@ -40,8 +40,8 @@
     </names>
   </macro>
   <macro name="author">
-    <names variable="author" font-variant="small-caps">
-      <name initialize-with=". " delimiter-precedes-last="always"/>
+    <names variable="author">
+      <name initialize-with=". " delimiter-precedes-last="always" font-variant="small-caps"/>
       <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
