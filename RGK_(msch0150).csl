@@ -154,7 +154,7 @@
       </choose>
     </layout>
   </citation>
-  <bibliography hanging-indent="false" line-spacing="1" entry-spacing="1">
+  <bibliography hanging-indent="false" line-spacing="1" entry-spacing="0">
     <sort>
       <key macro="author-sort"/>
       <key variable="issued"/>
