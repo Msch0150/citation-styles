@@ -24,7 +24,7 @@
     <category field="anthropology"/>
     <category field="humanities"/>
     <summary>This citation style uses the citation guidelines provided by the Romano-Germanic Commission of the German Archaeological Institute (DGUF). An older version was known as &quot;RGK_archaeology_DGUF&quot;. Original external style for reference: https://www.dguf.de/fileadmin/user_upload/Arbeitskreise/AK_DGUF-Zotero/RGK_archaeology_DGUF.csl</summary>
-    <updated>2025-12-21T16:57:46+00:00</updated>
+    <updated>2025-12-22T16:57:46+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
@@ -155,23 +155,23 @@
     </layout>
   </citation>
   <bibliography hanging-indent="false" line-spacing="1" entry-spacing="1">
-    <choose>
-      <if type="standard">
-      </if>
-      <else-if>
-        <sort>
-          <key macro="author-sort"/>
-          <key variable="issued"/>
-          <key variable="title"/>
-        </sort>
-        <layout suffix=".">
-          <group display="block">
+    <sort>
+      <key macro="author-sort"/>
+      <key variable="issued"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <choose>
+        <if type="standard">
+        </if>
+        <else>
+          <group>
             <text macro="author-short" suffix=" "/>
             <date variable="issued">
               <date-part name="year"/>
             </date>
           </group>
-          <group delimiter=" " suffix=".">
+          <group display="block" delimiter=" " suffix=".">
             <choose>
               <if type="bill book graphic legal_case motion_picture report song chapter entry-dictionary paper-conference article article-journal article-magazine article-newspaper broadcast interview manuscript map patent personal_communication song speech thesis webpage" match="any">
                 <text macro="author" suffix=","/>
@@ -239,7 +239,7 @@
                                   <text variable="page" prefix=" " suffix=""/>
                                 </group>
                               </if>
-                              <else-if>
+                              <else>
                                 <group delimiter="," suffix=",">
                                   <text variable="volume"/>
                                   <text variable="issue"/>
@@ -250,7 +250,7 @@
                                   </date>
                                   <text variable="page" prefix=", " suffix="."/>
                                 </group>
-                              </else-if>
+                              </else>
                             </choose>
                           </group>
                         </group>
@@ -299,8 +299,8 @@
               </if>
             </choose>
           </group>
-        </layout>
-      </else-if>
-    </choose>
+        </else>
+	  </choose>
+	</layout>
   </bibliography>
 </style>
