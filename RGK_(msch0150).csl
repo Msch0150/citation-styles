@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" name-delimiter=" / " default-locale="de-DE">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" name-delimiter=" / ">
   <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
   <info>
-    <title>Römisch-Germanische Kommission (RGK) (author-date, Deutsch, mit Erweiterungen für Ruhr-Universität Bochum, ArWi)</title>
+    <title>Römisch-Germanische Kommission (RGK) (author-date, with extensions for Ruhr-Universität Bochum, ArWi)</title>
     <title-short>DAI-RGK (RUB, Arwi)</title-short>
     <id>http://www.zotero.org/styles/dai-rgk-rub</id>
     <link href="http://www.zotero.org/styles/dai-rgk-rub" rel="self"/>
@@ -24,7 +24,7 @@
     <category field="anthropology"/>
     <category field="humanities"/>
     <summary>This citation style uses the citation guidelines provided by the Romano-Germanic Commission of the German Archaeological Institute (DGUF). An older version was known as &quot;RGK_archaeology_DGUF&quot;. Original external style for reference: https://www.dguf.de/fileadmin/user_upload/Arbeitskreise/AK_DGUF-Zotero/RGK_archaeology_DGUF.csl</summary>
-    <updated>2025-12-22T16:57:46+00:00</updated>
+    <updated>2025-12-24T13:34:46+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
