@@ -177,7 +177,7 @@
                 <text macro="author" suffix=","/>
                 <choose>
                   <if type="bill book graphic broadcast legal_case motion_picture report song manuscript map patent personal_communication speech" match="any">
-                    <group>
+                    <group suffix=".">
                       <group>
                         <text variable="title"/>
                         <text macro="collection" prefix=". "/>
